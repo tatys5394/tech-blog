@@ -19,7 +19,6 @@ Post.init(
         type: DataTypes.STRING,
         allowNull: false,
     },
-
     author_id: {
         type: DataTypes.INTEGER,
         references: {
@@ -28,7 +27,20 @@ Post.init(
         },
     },
 },
-
+{
+    hooks: {
+        beforeCreate: async (user) => {
+            user.password = await bcrypt.hash
+            (user.password, 10);
+            return user;
+        },
+        beforeUpdate: async (user) => {
+            user.password = await bcrypt.hash
+            (user.password, 10);
+            return user;
+        },
+    },
+},
 {
     sequelize,
     underscore: true,
