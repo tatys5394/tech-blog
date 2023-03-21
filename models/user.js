@@ -37,6 +37,13 @@ User.init(
         },
     },
 },
+{
+    sequelize,
+    underscore: true,
+    freezeTableNames: true,
+    timestamps: true,
+    modelName: "post"
+},
 );
 
 module.exports = User;

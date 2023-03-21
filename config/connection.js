@@ -10,7 +10,10 @@ const sequelize = new Sequelize(
     process.env.DB_PASS,
     // OPTIONS OBJECT
     {
-        host: "localhost",
+        host: "localhost", // 127.0.0.1
+        dialect: "mysql",
+        port: 3306
     }
+)
 
-);
+module.exports = sequelize;

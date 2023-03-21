@@ -16,7 +16,7 @@ Post.init(
         allowNull: false,
     },
     content: {
-        type: DataTypes.STRING,
+        type: DataTypes.TEXT,
         allowNull: false,
     },
     author_id: {
@@ -28,26 +28,12 @@ Post.init(
     },
 },
 {
-    hooks: {
-        beforeCreate: async (user) => {
-            user.password = await bcrypt.hash
-            (user.password, 10);
-            return user;
-        },
-        beforeUpdate: async (user) => {
-            user.password = await bcrypt.hash
-            (user.password, 10);
-            return user;
-        },
-    },
-},
-{
     sequelize,
     underscore: true,
     freezeTableNames: true,
     timestamps: true,
     modelName: "post"
-},
+}
 );
 
 module.exports = Post;
