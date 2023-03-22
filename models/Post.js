@@ -1,5 +1,6 @@
 const { Model, DataTypes } = require("sequelize");
 const sequelize = require("../config/connection");
+const User = require("./User")
 
 class Post extends Model {}
 
@@ -22,7 +23,7 @@ Post.init(
     author_id: {
       type: DataTypes.INTEGER,
       references: {
-        model: "User",
+        model: User,
         key: "id",
       },
       allowNull: true,
@@ -30,12 +31,22 @@ Post.init(
     },
   },
   {
+  hooks: {
+    beforeCreate: async (user) => {
+      user.password = await bcrypt.hash(user.password, 10);
+      return user;
+    },
+    beforeUpdate: async (user) => {
+      user.password = await bcrypt.hash(user.password, 10);
+      return user;
+    },
+  },
     sequelize,
     underscore: true,
     freezeTableNames: true,
     timestamps: true,
-    modelName: "post",
-  }
+    modelName: "Post",
+}
 );
 
 module.exports = Post;
