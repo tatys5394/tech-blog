@@ -1,4 +1,4 @@
-# NOTE TAKER README
+# TECH-BLOG README
 
 ## Description
 
@@ -60,5 +60,5 @@ In order to use this application the user must open up the browser,and instantly
 ![logo](/images/insomnia-post-data.png)
 
 ## Links:
-Heroku Deployed Link:
-GitHub Deployed Link:
+Heroku Deployed Link: https://tech-blog-5394.herokuapp.com/
+GitHub Deployed Link: https://github.com/tatys5394/tech-blog.git
