@@ -1,14 +1,13 @@
 const router = require("express").Router();
+const {Post}=require("../../model/index")
 
-// api/post/
+// api/get/
 router.get('/', async (req, res) => {
-    const data = {
-        title: "Title",
-        content: "Hi. Isn't food great.",
-        layout : 'home',
-      };
+    const data=await Post.findAll()
+    console.log(data)
     // res.render('home', data);
-    res.render('main', data);
+    // res.render('main', data);
+    res.status(200).json({data})
   });
 
 // api/post/

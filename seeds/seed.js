@@ -1,6 +1,6 @@
 const sequelize = require("../config/connection");
-const { User } = require("../models");
-const { Post }= require("..models")
+const { User } = require("../model");
+const { Post }= require("../model")
 
 
 const userData = [
